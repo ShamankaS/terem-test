@@ -1,0 +1,25 @@
+@import url('./vendor/normalize.css');
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.block {
+  margin-bottom: 10px;
+}
+
+.block__label {
+  display: inline-block;
+  width: 100px;
+}
+
+.submit-button {
+  margin-top: 10px;
+}
+
+.output__text {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
