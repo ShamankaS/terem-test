@@ -9,6 +9,8 @@ const form = document.getElementById('form');
 
 const outputText = document.querySelector('.output__text');
 
+const API = 'обработчик';
+
 function createJSON() {
   const data = {
     list1: dropdownOne.value,
@@ -24,7 +26,7 @@ function createJSON() {
 
 async function getData() {
   // "к абстрактному обработчику на том же сервере (в той же папке)" - не совсем поняла, что требовалось
-  const res = await fetch('обработчик', {
+  const res = await fetch(API, {
     headers: {
       'Content-Type': 'application/json'
       }
@@ -37,14 +39,14 @@ async function getData() {
   }
 };
 
-function submitForm(evt) {
+async function submitForm(evt) {
   evt.preventDefault();
 
   const formData = createJSON();
   outputText.textContent = formData;
 
   try {
-    const data = getData();
+    const data = await getData();
     alert('Ответ сервера: ' + JSON.stringify(data));
   } catch (err) {
     alert('Ошибка: ' + err);
